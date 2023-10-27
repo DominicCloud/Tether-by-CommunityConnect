@@ -1,0 +1,103 @@
+:root{
+    --yellow:rgb(236, 151, 6);
+    --black: rgb(0, 0, 0);
+    --white: rgb(255, 255, 255);
+    --purple: rgb(86, 24, 186);
+    --blue: rgb(90, 181, 209);
+    --gray: rgb(57, 60, 64);
+    --darkgray: #29292e;
+
+    --root-font-size: 2rem;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    padding:0;
+    margin: 0;
+    width: 100%;
+    background-color: var(--yellow);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--root-font-size);
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+/* GENERAL FLEX OBJECTS */
+
+.flex-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* FOOTER DESIGN */
+footer{
+    background-color: var(--black);
+    /* border: 2px solid cyan; */
+    color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    padding: 5px 5px 5px 5px; /* calc(2.25*var(--root-font-size)) */
+    align-items: flex-start;
+    justify-content: space-around;
+
+}
+footer ul{
+    list-style:circle;
+    margin: 10px;
+    font-size: 0.75em;
+}
+
+footer div{
+    /* border: 2px solid salmon; */
+    width: 100%;
+    margin:2px;
+    margin-bottom: 20px;
+    font-size: 0.85em;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    text-align: justify;
+}
+
+
+.underline-animation {
+    position: relative;
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.underline-animation::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--blue);
+    transition: width 0.3s ease;
+}
+
+.underline-animation:hover::before {
+    width: 100%;
+}
+
+
+
+

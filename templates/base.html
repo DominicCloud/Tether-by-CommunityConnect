@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock title %} | Tether</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'general.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="logo">LOGO</li>
+        <li class="navbar-item">Home</li>
+        <li class="navbar-item">About</li>
+        <li class="navbar-item">Contacts</li>
+        <li class="navbar-item">Campaigns</li>
+        <li>
+          {% if request.user.is_authenticated %}
+          <button class="logo btn-2">
+          <a href="/logout">Logout</a>
+          </button>
+          {% else %}
+            <button class="logo btn-2">
+              <a href="/login">Login/Signup</a>
+            </button>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+
+    <div class="page-window">
+      <h1>Welcome back to the journey, {{request.user}}</h1>
+      <h5>making someone's life easier has never gotten easier.</h5>
+      <h4>
+        the most accessible and intuitive way to lend a hand to a needy one.
+      </h4>
+    </div>
+
+    <div class="page-window flex-column" id="go-here">
+      <p>Change Lives with just a few clicks.</p>
+      <button class="btn-1">
+        <a href="/login">Begin here</a>
+      </button>
+    </div>
+
+    {% block body %}{% endblock body %}
+  </body>
+
+  <footer>
+    <div>
+      <ul>
+        <li class="underline-animation">Home</li>
+        <li class="underline-animation">About</li>
+        <li class="underline-animation">Contacts</li>
+        <li class="underline-animation">Campaigns</li>
+      </ul>
+      <ul>
+        <li class="underline-animation">Instagram</li>
+        <li class="underline-animation">Facebook</li>
+        <li class="underline-animation">Whatsapp</li>
+        <li class="underline-animation">Telegram</li>
+      </ul>
+      <ul>
+        <li class="underline-animation">+91 93045 45217</li>
+        <li class="underline-animation">tether@gmail.com</li>
+        <li class="underline-animation">@_tether_</li>
+      </ul>
+    </div>
+    <div style="justify-content: center">
+      &copy; 2023 Tether Inc. by CommunityConnect
+    </div>
+  </footer>
+</html>
