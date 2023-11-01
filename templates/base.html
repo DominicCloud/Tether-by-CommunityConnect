@@ -37,7 +37,7 @@
         </li>
       </ul>
     </nav>
-
+    {% if request.user.is_authenticated %}
     <div class="page-window">
       <h1>Welcome back to the journey, {{request.user}}</h1>
       <h5>making someone's life easier has never gotten easier.</h5>
@@ -45,15 +45,17 @@
         the most accessible and intuitive way to lend a hand to a needy one.
       </h4>
     </div>
-
+    {% else %}
     <div class="page-window flex-column" id="go-here">
       <p>Change Lives with just a few clicks.</p>
       <button class="btn-1">
         <a href="/login">Begin here</a>
       </button>
     </div>
+    {% endif %}
 
     {% block body %}{% endblock body %}
+    
     <script>
       let prevScrollPos = window.pageYOffset;
       const navbar = document.querySelector('.navbar');

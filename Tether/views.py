@@ -23,8 +23,11 @@ def register(request):
 
         print(fname, username,  lname, email, pwd1, pwd2, role)
 
-        if pwd1!=pwd2 or User.objects.filter(username=username).exists():
-            messages.info(request, 'Hey there, fill out the info properly!')
+        if User.objects.filter(username=username).exists():
+            messages.info(request, f'Username {username} already exists :(')
+            return redirect('/register')
+        elif pwd1!=pwd2:
+            messages.info(request, 'Passwords do not match!')
             return redirect('/register')
         else:
             user = User.objects.create_user(username=username, first_name=fname, last_name=lname, password=pwd1, email=email)

@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 
 # Regular user info
 # 1) Hulk, smash
+# 2) Nilsa, like
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
