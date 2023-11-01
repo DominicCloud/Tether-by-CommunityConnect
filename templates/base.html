@@ -54,6 +54,20 @@
     </div>
 
     {% block body %}{% endblock body %}
+    <script>
+      let prevScrollPos = window.pageYOffset;
+      const navbar = document.querySelector('.navbar');
+  
+      window.onscroll = function() {
+        const currentScrollPos = window.pageYOffset;
+        if (prevScrollPos > currentScrollPos) {
+          navbar.style.top = "0";
+        } else {
+          navbar.style.top = "-100px"; // Adjust this value for your desired hiding effect
+        }
+        prevScrollPos = currentScrollPos;
+      }
+    </script>
   </body>
 
   <footer>
