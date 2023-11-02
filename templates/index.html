@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block title %} Home {%endblock title %} 
-
+{% load static %}
 {% block body %}
 
 <div class="page-window">
   <div class="features flex-column">
-    <img src="CommunityConnect\media\tether.png" alt="icon" />
+    <img src="{% static "media/scalability.png" %}" alt="icon" />
     <p>Scalable</p>
     <div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam fugit
@@ -15,7 +15,7 @@
   </div>
 
   <div class="features flex-column">
-    <img src="CommunityConnect\media\tether.png" alt="icon" />
+    <img src="{% static "media/transformative.png" %}" alt="icon" />
     <p>Transformative</p>
     <div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam fugit
@@ -26,7 +26,7 @@
   </div>
 
   <div class="features flex-column">
-    <img src="CommunityConnect\media\tether.png" alt="icon" />
+    <img src="{% static "media/revolutionary.png" %}" alt="icon" />
     <p>Revolutionary</p>
     <div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam fugit

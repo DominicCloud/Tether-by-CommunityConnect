@@ -52,7 +52,7 @@ def loginUser(request):
             login(request, user)
             return redirect('/')
         else:
-            messages.info(request, 'Take the L and login again')
+            messages.info(request, 'Incorrect username or password')
             return render(request, 'login.html')
     # No backend authenticated the credentials
     return render(request, 'login.html')
