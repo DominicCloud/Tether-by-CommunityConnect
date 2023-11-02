@@ -7,5 +7,8 @@ urlpatterns = [
     path('', views.index, name="homepage"),
     path('register', views.register, name="registration_page"),
     path('login', views.loginUser, name="login_page"),
-    path('logout', views.logoutUser, name="loggingemout")
+    path('logout', views.logoutUser, name="loggingemout"),
+    path('campaigns', views.campaigns, name="campaigns_page"),
+    path('create', views.createCampaign, name="create_campaigns")
+
 ]

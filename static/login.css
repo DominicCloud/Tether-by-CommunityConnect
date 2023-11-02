@@ -22,13 +22,19 @@
     
     transition: border 0.3s ease-in;
 } */
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .form-container form{
     border: 2px solid transparent;
     background-color: var(--darkgray);
-    padding: 10px;
+    padding: 20px;
     margin: 10px;
     border-radius: 10px;
+    max-width: fit-content;
     
     transition: border 0.3s ease-in;
 }
@@ -69,6 +75,10 @@
 
     transition: all 0.3s ease-out, color 0.7s ease;
     
+}
+
+.input-style option{
+    color: black;
 }
 
 .btn-1{

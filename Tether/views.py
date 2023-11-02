@@ -4,11 +4,18 @@ from django.contrib.auth.models import User
 from .models import Profile
 from django.contrib.auth import login, logout
 from django.contrib import messages
+import re
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    user_role= 0
+    for x in Profile.objects.filter(user = request.user):
+        print(x, x.role)
+        if not x.role == 'naive_user':
+            print('working')
+            user_role = 1
+    return render (request, 'index.html', {'user_role': user_role})
 
 def register(request):
         
@@ -61,3 +68,33 @@ def logoutUser(request):
     if request.user.is_authenticated:
         logout(request)
         return redirect('/login')
+    
+def campaigns(request):
+    user_role= 0
+    for x in Profile.objects.filter(user = request.user):
+        print(x, x.role)
+        if not x.role == 'naive_user':
+            print('working')
+            user_role = 1
+    return render(request, 'campaigns.html', {'user_role': user_role})
+
+def createCampaign(request):
+    user_role= 0
+    for x in Profile.objects.filter(user = request.user):
+        if not x.role == 'naive_user':
+            user_role = 1
+
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        campaign_type = request.POST.get('campaign-type')
+        description = request.POST.get('description')
+        doe = request.POST.get('DateofEvent')
+        tags = request.POST.get('tags')
+        tags_arr = re.findall(r'\w+', tags)
+
+        bgimg = request.FILES.get('iamgebg')
+        contact_info = request.POST.get('c_info')
+        c_info = contact_info.split(',')
+
+        print(title, campaign_type, description, doe, tags_arr, c_info)
+    return render(request, 'create.html', {'user_role': user_role})

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Create{% endblock title %}
+{% block body %}
+
+<div class="introductory-img">
+    <h1>Create Change, move lives</h1>
+</div>
+
+<div class="form-container">
+    <form method="POST" action="/create">
+        {% csrf_token %}
+        <label>Title*:</label>
+        <input
+        type="text"
+        name="title"
+        class="input-style"
+        placeholder="Enter Campaign Title"
+        required
+        /><br><br>
+
+        <label>Event Type*:</label>
+        <select name="campaign-type" class="input-style" required >
+            <option value="" disabled selected hidden>Pick Event Type</option>
+            <option value="campaign">Campaign</option>
+            <option value="fundraiser">Fundraiser</option>
+            <option value="collaborative">Collaborative</option>
+        </select><br /><br />
+        
+        <label>Description*:</label><br><br>
+        <textarea
+        type="text"
+        name="description"
+        class="input-style"
+        placeholder="Give your Campaign a suitable description"
+        rows="8"
+        cols="40"
+        required
+        ></textarea><br /><br />
+
+        <label>Commencement Date & Time:</label>
+        <input
+        type="datetime-local"
+        name="DateofEvent"
+        class="input-style"
+        placeholder="Enter Date and Time"
+        /><br><br><br>
+
+        <label>Give your Campaign some tags*:</label><br><br>
+        <textarea
+        type="text"
+        name="tags"
+        class="input-style"
+        placeholder="For ex.: #beachCleaning, #campaignForTheCause, ..."
+        rows="8"
+        cols="40"
+        required
+        ></textarea><br><br>
+
+        <label>Upload Campaign Card image:</label><br><br>
+        <label class="btn-2" for="imagebg">Upload Image</label>
+        <input 
+        type="file"
+        name="imagebg"
+        id="imagebg"
+        class="input-style"
+        place="drop image here"
+        style="display: none;"
+        /><br><br><br>
+
+        <label>Contact Info*:</label><br><br>
+        <textarea
+        type="text"
+        name="c_info"
+        class="input-style"
+        placeholder="Email-ID, Phone no., etc"
+        rows="4"
+        cols="40"
+        required
+        ></textarea><br /><br />
+
+        <input type="submit" class="btn-1" /><br>
+
+    </form>
+</div>
+{% endblock body %}
+

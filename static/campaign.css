@@ -1,0 +1,100 @@
+.introductory-img{
+    height: 60vh;
+    background: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.campaign-container{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    padding:10px;
+    justify-content: space-around;
+    border: 6px solid cyan;
+}
+
+.campaign-item{
+    border: 5px solid #d86060;
+    border-radius: 2px 20px 2px 20px;
+    box-shadow: 5px 10px #D9027D;
+    padding:5px;
+    margin: 5px;
+    margin-left: 20px;
+    height: calc(8*var(--root-font-size));
+    width: calc(7*var(--root-font-size));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    flex-direction: column;
+    transition: 0.15s ease;
+}
+
+.somecontent{
+    width: calc(var(4*--root-font-size));
+    height: calc(var(10*--root-font-size));
+}
+
+.sub-item-1{
+    border: 5px solid #e069ad;
+    border: none;
+    padding: 2px;
+    flex: 1;
+    min-height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.sub-item-2{
+    visibility: hidden;
+    border: 5px solid #e069ad;
+    display: none;
+}
+.sub-item-2 .item-1{
+    border: 2px solid green;
+    padding: 5px;
+    font-size: calc(0.6*var(--root-font-size));
+    width: 50%;
+}
+.sub-item-2 .item-2{
+    border: 2px solid green;
+    padding: 5px;
+    font-size: calc(0.6*var(--root-font-size));
+    width: 50%;
+}
+
+.hidden-info{
+    visibility: hidden;
+    border: none;
+    border-radius: 20px 2px 20px 2px;
+    text-align: justify;
+    background-color: #272727;
+    font-size: calc(0.7*var(--root-font-size));
+    width: 600px;
+    margin: 20px 10px 10px 30px;
+    padding: 3px 10px 3px 10px;
+    box-shadow: -5px 10px black;
+
+    transition: all 0.15s;
+}
+.hidden-info i {
+    font-size: calc(0.95*var(--root-font-size));
+}
+
+.hidden-info a{
+    color: antiquewhite;
+}
+
+.hidden-links{
+    background-color: var(--purple);
+    padding: 3px 10px 3px 10px;
+    border-radius: 20px 2px 20px 2px;
+    font-size: calc(0.8*var(--root-font-size));
+    margin: 20px;
+    box-shadow: -5px 10px rgb(58, 17, 125);
+    visibility: hidden;
+    transition: all 0.15s;
+}
+
+.hidden-links a {
+    font-size: calc(0.5*var(--root-font-size));
+}

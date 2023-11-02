@@ -82,41 +82,37 @@
     background-color: darkblue;
 }
 
-.page-window h1 {
-    font-size: calc(3*var(--root-font-size));
-    animation: entrance 1s ease-in-out;
+.page-window .welcome_user {
+    font-size: calc(2*var(--root-font-size));
+    overflow: hidden;
+    height: 90px;
+    max-height: fit-content;
+    max-width: fit-content;
+    animation: typing 3s steps(30) 1s 1 normal both, blink-caret 1s steps(30) 1s infinite;
     margin: 5px 20px 5px 20px;
+    border-right: 3px solid transparent; /* Create the typing cursor */
     /* border: 2px solid salmon; */
 
 }
 
-.page-window h5 {
-    font-size: calc(1.25*var(--root-font-size));
-    /* border: 2px solid navajowhite; */
-    margin: 5px 20px 5px 20px;
-    align-self: flex-start;
-
-}
-
-.page-window h4 {
-    font-size: calc(1.55*var(--root-font-size));
-    /* border: 2px solid navajowhite; */
-    margin: 5px 20px 5px 20px;
-    align-self: flex-end;
-    justify-self: flex-end;
-
-}
-
-@keyframes entrance {
-    0%{
-        opacity: 0.2;
-        font-size: 3em;
+@keyframes typing {
+    from {
+        width: 0;
     }
-    100%{
-        opacity: 1;
-        
-    }   
+    to {
+        width: 100%;
+    }
 }
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
+}
+
 
 /*STYLE 1 BUTTON*/
 .btn-1{

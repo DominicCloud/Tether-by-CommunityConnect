@@ -2,15 +2,29 @@
 {% load static %}
 {% block body %}
 
+{% if request.user.is_authenticated %}
+<div class="page-window">
+  <p class="welcome_user">Welcome back to the journey, {{request.user}}</p>
+  {% comment %} <h5>making someone's life easier has never gotten easier.</h5>
+  <h4>
+    the most accessible and intuitive way to lend a hand to a needy one.
+  </h4> {% endcomment %}
+</div>
+{% else %}
+<div class="page-window flex-column" id="go-here">
+  <p>Change Lives with just a few clicks.</p>
+  <button class="btn-1">
+    <a href="/login">Begin here</a>
+  </button>
+</div>
+{% endif %}
+
 <div class="page-window">
   <div class="features flex-column">
     <img src="{% static "media/scalability.png" %}" alt="icon" />
     <p>Scalable</p>
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam fugit
-      blanditiis necessitatibus at aperiam molestias magnam atque similique
-      omnis id facere nihil, error perspiciatis, alias debitis exercitationem
-      expedita molestiae?
+      Our platform offers scalable solutions for NGOs, empowering transformative initiatives of all sizes. We believe in turning ideas into actions, fostering change, and making transformation possible. Empowers diverse NGOs, volunteers, and supporters to collaborate effectively.
     </div>
   </div>
 
@@ -18,10 +32,7 @@
     <img src="{% static "media/transformative.png" %}" alt="icon" />
     <p>Transformative</p>
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam fugit
-      blanditiis necessitatibus at aperiam molestias magnam atque similique
-      omnis id facere nihil, error perspiciatis, alias debitis exercitationem
-      expedita molestiae?
+      We are dedicated to driving meaningful change by empowering NGOs through a digital platform. Together, we transform challenges into opportunities for growth and development, reaching broader audiences and raising substantial funds.
     </div>
   </div>
 
@@ -29,10 +40,7 @@
     <img src="{% static "media/revolutionary.png" %}" alt="icon" />
     <p>Revolutionary</p>
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam fugit
-      blanditiis necessitatibus at aperiam molestias magnam atque similique
-      omnis id facere nihil, error perspiciatis, alias debitis exercitationem
-      expedita molestiae?
+      Collaboration's revolutionary power drives our mission. We unite NGOs, volunteers, and supporters, forming a potent network that surpasses individual efforts. Our platform catalyzes revolutionary change by uniting diverse minds.
     </div>
   </div>
 </div>
