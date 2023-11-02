@@ -5,10 +5,6 @@
 {% if request.user.is_authenticated %}
 <div class="page-window">
   <p class="welcome_user">Welcome back to the journey, {{request.user}}</p>
-  {% comment %} <h5>making someone's life easier has never gotten easier.</h5>
-  <h4>
-    the most accessible and intuitive way to lend a hand to a needy one.
-  </h4> {% endcomment %}
 </div>
 {% else %}
 <div class="page-window flex-column" id="go-here">

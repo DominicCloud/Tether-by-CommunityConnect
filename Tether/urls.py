@@ -9,5 +9,6 @@ urlpatterns = [
     path('login', views.loginUser, name="login_page"),
     path('logout', views.logoutUser, name="loggingemout"),
     path('campaigns', views.campaigns, name="campaigns_page"),
-    path('create', views.createCampaign, name="create_campaigns")
+    path('create', views.createCampaign, name="create_campaigns"),
+    path('display/<int:id>/', views.displayCampaign, name="display_campaign")
 ]

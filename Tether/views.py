@@ -76,7 +76,11 @@ def campaigns(request):
         if not x.role == 'naive_user':
             print('working')
             user_role = 1
-    return render(request, 'campaigns.html', {'user_role': user_role})
+
+    campaigns_collection = Campaign.objects.all()
+
+    context = {'user_role':user_role, 'campaigns':campaigns_collection}
+    return render(request, 'campaigns.html', context)
 
 def createCampaign(request):
     user_role= 0
@@ -115,3 +119,8 @@ def createCampaign(request):
         Campaign.objects.create(title=title, campaign_type=campaign_type, description=description, doe=doe, tags_arr=tags_arr, bgimg=bgimg, contact_info=c_info)
         print(title, campaign_type, description, doe, tags_arr, c_info)
     return render(request, 'create.html', {'user_role': user_role})
+
+
+def displayCampaign(request, id):
+    req_campaign = Campaign.objects.filter(id=id)
+    return render(request, 'display.html', {'campaign':req_campaign})

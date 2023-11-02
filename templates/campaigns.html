@@ -5,82 +5,69 @@
     <h1>Some large content here</h1>
 </div>
 <div class="campaign-container">
-    
-    <div class="campaign-item" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
-        <div class="sub-item-1">
-            <h5>Campaign #1</h5>
-            <div class="somecontent"><h2>img here</h2></div>
-            <!-- <p>date</p>
-            <p>time</p> -->
-        </div>
-        <!-- <div class="sub-item-2">
-            <div class="item-1">Date here</div>
-            <div class="item-2">Time Here</div>
-        </div> -->
-        <div class="hidden-info"><i>Campaign Title 1</i>
-            <br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ipsam ratione ullam ex quis, similique sapiente, sunt officiis libero tenetur hic rerum praesentium laboriosam unde, ut quasi soluta incidunt aperiam.
-        
-        </div>
-        <div class="hidden-links"><i>Links</i>
-            <br>
-            <a href="https://www.w3schools.com/" target="_blank">w3schools</a><br>
-            <a href="https://www.google.com/" target="_blank">Google</a><br>
-            <a href="https://www.canva.com/" target="_blank">Canva</a><br>
-        </div>
-        
-    </div>
 
-    <div class="campaign-item" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
-        <div class="sub-item-1">Campaign #2</div>
-        <div class="sub-item-2">
-            <div class="item-1">A</div>
-            <div class="item-2">B</div>
-        </div>
-        <div class="hidden-info"><i>Campaign Title 2</i><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ipsam ratione ullam ex quis, similique sapiente, sunt officiis libero tenetur hic rerum praesentium laboriosam unde, ut quasi soluta incidunt aperiam.
-        </div>
-        <div class="hidden-links"><i>Links</i>
-            <br>
-            <a href="https://www.w3schools.com/" target="_blank">w3schools</a><br>
-            <a href="https://www.google.com/" target="_blank">Google</a><br>
-            <a href="https://www.canva.com/" target="_blank">Canva</a><br>
-        </div>
-    </div>
+    {% for campaign in campaigns %}
+    {% if campaign.bgimg %}
+        <div class="campaign-item" onmouseover="showDescription(this)" onmouseout="hideDescription(this)" style="background: url({{campaign.bgimg.url}}); object-fit: scale-down;">
 
-    <div class="campaign-item" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
-        <div class="sub-item-1">Campaign #3</div>
-        <div class="sub-item-2">
-            <div class="item-1">A</div>
-            <div class="item-2">B</div>
+
+            <div class="sub-item-1">
+                <h5>{{campaign.campaign_type}}</h5>
+                
+                <button class="btn-3"><a href="/display/{{campaign.id}}">More Info Here</button>                 
+            </div>
+
+            <div class="hidden-info"><i>{{campaign.title}}</i>
+                <br>{{campaign.description}}    
+            </div>
+
+            <div class="hidden-links"><i>Links</i>
+                <br>
+                <a href="https://www.w3schools.com/" target="_blank">w3schools</a><br>
+                <a href="https://www.google.com/" target="_blank">Google</a><br>
+                <a href="https://www.canva.com/" target="_blank">Canva</a><br>
+            </div>
+            
         </div>
-        <div class="hidden-info"><i>Campaign Title 3</i><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ipsam ratione ullam ex quis, similique sapiente, sunt officiis libero tenetur hic rerum praesentium laboriosam unde, ut quasi soluta incidunt aperiam.
-        </div>
-        <div class="hidden-links"><i>Links</i>
-            <br>
-            <a href="https://www.w3schools.com/" target="_blank">w3schools</a><br>
-            <a href="https://www.google.com/" target="_blank">Google</a><br>
-            <a href="https://www.canva.com/" target="_blank">Canva</a><br>
-        </div>
-    </div>
+
+        {% else %}
+
+            <div class="campaign-item" onmouseover="showDescription(this)" onmouseout="hideDescription(this)" style="background: url('static/stock/default1.jpeg'); object-fit: scale-down;">
+                <div class="sub-item-1">
+                    <h5>{{campaign.campaign_type}}</h5>
+                    
+                    <button class="btn-3"><a href="/display/{{campaign.id}}">More Info Here</button>                 
+                </div>
     
+                <div class="hidden-info"><i>{{campaign.title}}</i>
+                    <br>{{campaign.description}}    
+                </div>
+    
+                <div class="hidden-links"><i>Links</i>
+                    <br>
+                    <a href="https://www.w3schools.com/" target="_blank">w3schools</a><br>
+                    <a href="https://www.google.com/" target="_blank">Google</a><br>
+                    <a href="https://www.canva.com/" target="_blank">Canva</a><br>
+                </div>
+            </div>
+        {% endif %}
+    
+    {% endfor %}    
 </div>
 
 <script>
     function showDescription(card) {
     const description = card.querySelector('.hidden-info');
     const links = card.querySelector('.hidden-links');
-    const itemdiv = card.querySelector('sub-item-2');
     description.style.visibility = 'visible';
     links.style.visibility = 'visible';
-    itemdiv.style.visibility = 'block';
     }
 
     function hideDescription(card) {
     const description = card.querySelector('.hidden-info');
     const links = card.querySelector('.hidden-links');
-    const itemdiv = card.querySelector('sub-item-2');
     description.style.visibility = 'hidden';
     links.style.visibility = 'hidden';
-    itemdiv.style.visibility = 'none';
     }
     
 </script>

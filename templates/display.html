@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}View Event{% endblock title %}
+{% block body %}
+{% for c in campaign %}
+<div class="campaign-window" style="background: url({{c.bgimg.url}})">
+    <h3>{{c.title}}</h3>
+    <p>{{c.description}}</p>
+    <div>
+        {% if c.doe %}
+        <div>{{c.campaign_type}} begins on {{c.doe}}</div>
+        {% endif %}
+        
+        <div class="c_info">
+            <p><u>Contact Information:</u></p>
+            {% for info in c.contact_info %}
+                {% for x in info %}
+                    <div>{{x}}</div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock body %}
+
