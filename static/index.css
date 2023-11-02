@@ -85,12 +85,12 @@
 .page-window .welcome_user {
     font-size: calc(2*var(--root-font-size));
     overflow: hidden;
-    height: 90px;
+    height: 100px;
     max-height: fit-content;
     max-width: fit-content;
     animation: typing 3s steps(30) 1s 1 normal both, blink-caret 1s steps(30) 1s infinite;
     margin: 5px 20px 5px 20px;
-    border-right: 3px solid transparent; /* Create the typing cursor */
+    border-right: 3px solid transparent;
     /* border: 2px solid salmon; */
 
 }

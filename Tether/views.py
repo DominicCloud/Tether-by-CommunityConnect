@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from .models import Profile, Campaign
+from .models import Profile, Campaign, CampaignRegistration
 from django.contrib.auth import login, logout
 from django.contrib import messages
+from django.utils import timezone
 import re
 
 # Create your views here.
@@ -39,7 +40,8 @@ def register(request):
         else:
             user = User.objects.create_user(username=username, first_name=fname, last_name=lname, password=pwd1, email=email)
             user.save()
-            Profile.objects.create(user=user, role=role)
+            prof = Profile.objects.create(user=user, role=role)
+            prof.save()
 
             user = authenticate(username=username, password=pwd1)
             login(request, user)
@@ -116,7 +118,8 @@ def createCampaign(request):
 
         c_info = [formatted_phone_numbers, emails]
 
-        Campaign.objects.create(title=title, campaign_type=campaign_type, description=description, doe=doe, tags_arr=tags_arr, bgimg=bgimg, contact_info=c_info)
+        new_campaign = Campaign.objects.create(title=title, campaign_type=campaign_type, description=description, doe=doe, tags_arr=tags_arr, bgimg=bgimg, contact_info=c_info)
+        new_campaign.save()
         print(title, campaign_type, description, doe, tags_arr, c_info)
     return render(request, 'create.html', {'user_role': user_role})
 
@@ -124,3 +127,21 @@ def createCampaign(request):
 def displayCampaign(request, id):
     req_campaign = Campaign.objects.filter(id=id)
     return render(request, 'display.html', {'campaign':req_campaign})
+
+def createRegistration(request, campaign_id):
+    req_campaign = Campaign.objects.filter(id=campaign_id)
+    required_profile = Profile.objects.filter(user=request.user)
+
+    for c in req_campaign:
+        title = c.title
+
+    for p in required_profile:
+        print("Profile is", p)
+        profile = p
+
+        registration = CampaignRegistration.objects.create(profile=profile, campaign_title=title, date_of_registration=timezone.now())
+        registration.save()
+
+
+    return redirect('/')
+

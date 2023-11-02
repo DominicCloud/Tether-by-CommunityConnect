@@ -1,9 +1,12 @@
 .introductory-img{
-    height: 60vh;
-    background: teal;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.introductory-img h1{
+    text-align: center;
 }
 .campaign-container{
     display: flex;
@@ -13,7 +16,7 @@
     gap:5px;
     padding:10px;
     justify-content: space-around;
-    border: 6px solid cyan;
+    border-top: 5px solid rgb(255, 115, 0);
 }
 
 .campaign-item{
@@ -39,7 +42,7 @@
     /* overflow: hidden; */
 }
 
-/*STYLE 1 BUTTON*/
+/*STYLE 3 BUTTON*/
 .btn-3{
     color: bisque;
     font-family: 'Poppins', sans-serif;
