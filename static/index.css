@@ -82,18 +82,60 @@
     background-color: darkblue;
 }
 
+.special{
+    background-image: radial-gradient(lightblue, darkblue, black);
+}
+
 .page-window .welcome_user {
     font-size: calc(2*var(--root-font-size));
     overflow: hidden;
-    height: 100px;
+    height: 90px;
     max-height: fit-content;
     max-width: fit-content;
     animation: typing 3s steps(30) 1s 1 normal both, blink-caret 1s steps(30) 1s infinite;
     margin: 5px 20px 5px 20px;
     border-right: 3px solid transparent;
+    top: 200px;
+    left:150px;
     /* border: 2px solid salmon; */
 
 }
+/* 
+.video-container {
+    position: relative;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+ */
+ .special2{
+    background-image: linear-gradient(to bottom, darkblue, darkblue, darkblue, black);
+}
+
+.special3{
+    background-image: linear-gradient(to bottom,black, rgb(30, 0, 75), rgb(78, 10, 180), rgb(78, 10, 180)  );
+}
+
+/* .page-window video{
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+    }
+    
+    video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+} */
 
 @keyframes typing {
     from {

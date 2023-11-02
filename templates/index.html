@@ -3,8 +3,8 @@
 {% block body %}
 
 {% if request.user.is_authenticated %}
-<div class="page-window">
-  <p class="welcome_user">Welcome back to the journey, {{request.user}}</p>
+<div class="page-window special">
+  <p class="welcome_user overlay">Welcome back to the journey, {{request.user}}</p>
 </div>
 {% else %}
 <div class="page-window flex-column">
@@ -15,7 +15,7 @@
 </div>
 {% endif %}
 
-<div class="page-window">
+<div class="page-window special2">
   <div class="features flex-column">
     <img src="{% static "icons/scalability.png" %}" alt="icon" />
     <p>Scalable</p>
@@ -41,7 +41,7 @@
   </div>
 </div>
 
-<div class="page-window">
+<div class="page-window special3">
   Making the world a better place is more than just a dream.
 </div>
 {% endblock body %}

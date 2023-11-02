@@ -3,15 +3,15 @@
 {% block body %}
 {% for c in campaign %}
 {% if c.bgimg %}
-<div class="campaign-window" style="background: url({{c.bgimg.url}})">
+<div class="campaign-window" style="background: url({{c.bgimg.url}}); object-fit:fill;">
     <h3>{{c.title}}</h3>
     <p>{{c.description}}</p>
     <div>
         {% if c.doe %}
-        <div>{{c.campaign_type}} begins on {{c.doe}}</div>
+        <div class="graybg">{{c.campaign_type}} begins on {{c.doe}}</div>
         {% endif %}
         
-        <div class="c_info">
+        <div class="c_info graybg">
             <p><u>Contact Information:</u></p>
             {% for info in c.contact_info %}
                 {% for x in info %}

@@ -1,31 +1,13 @@
-.login-page{
-    padding:0;
-    margin: 0;
-    height: 100vh;
-    /* width: 100%; */
-    color: white;
-    /* border: 1px solid cyan; */
-    font-family: 'Poppins', sans-serif;
-    font-size: var(--root-font-size);
-    background-color: black;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+.introductory-img h1{
+    background-image: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.5), rgba(0,0,0,0.7),rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(0,0,0,0.2));
 }
-/* .form-container form{
-    border: 2px solid red;
-    border: 2px solid transparent;
-    background-color: var(--gray);
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    
-    transition: border 0.3s ease-in;
-} */
 .form-container{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(18, 18, 18);
+    border-bottom: 2px solid var(--blue);
+    padding: 20px 0px 20px 0px;
 }
 
 .form-container form{
