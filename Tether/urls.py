@@ -10,5 +10,4 @@ urlpatterns = [
     path('logout', views.logoutUser, name="loggingemout"),
     path('campaigns', views.campaigns, name="campaigns_page"),
     path('create', views.createCampaign, name="create_campaigns")
-
 ]

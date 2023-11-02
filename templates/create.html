@@ -7,7 +7,7 @@
 </div>
 
 <div class="form-container">
-    <form method="POST" action="/create">
+    <form method="POST" action="/create" enctype="multipart/form-data">
         {% csrf_token %}
         <label>Title*:</label>
         <input
@@ -64,7 +64,7 @@
         id="imagebg"
         class="input-style"
         place="drop image here"
-        style="display: none;"
+        {% comment %} style="display: none;" {% endcomment %}
         /><br><br><br>
 
         <label>Contact Info*:</label><br><br>

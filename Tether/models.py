@@ -17,3 +17,15 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user)
+    
+class Campaign(models.Model):
+    title = models.CharField(max_length=100)
+    campaign_type = models.TextField()
+    description = models.TextField()
+    doe = models.DateTimeField()
+    tags_arr = models.JSONField()
+    bgimg = models.ImageField(upload_to='images/', null=True, blank=True)
+    contact_info = models.JSONField()
+
+    def __str__(self):
+        return str(self.title)

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, Campaign
 from django.contrib.auth import login, logout
 from django.contrib import messages
 import re
@@ -92,9 +92,26 @@ def createCampaign(request):
         tags = request.POST.get('tags')
         tags_arr = re.findall(r'\w+', tags)
 
-        bgimg = request.FILES.get('iamgebg')
+        bgimg = request.FILES.get('imagebg')
         contact_info = request.POST.get('c_info')
-        c_info = contact_info.split(',')
 
+        # Use regular expressions to find phone numbers and email addresses
+        phone_numbers = re.findall(r'\+?[0-9]+[-. ()]*[0-9]+[-. ()]*[0-9]+', contact_info)
+        emails = re.findall(r'\S+@\S+', contact_info)
+
+        # Clean up phone numbers and emails
+        formatted_phone_numbers = []
+        for number in phone_numbers:
+            number = re.sub(r'[-. ()]', '', number)  # Remove unwanted characters
+            if number.startswith('+'):
+                formatted_phone_numbers.append(number)
+            else:
+                formatted_phone_numbers[-1] += number  # Append to the previous number
+
+        emails = [email.replace(',', '') for email in emails]
+
+        c_info = [formatted_phone_numbers, emails]
+
+        Campaign.objects.create(title=title, campaign_type=campaign_type, description=description, doe=doe, tags_arr=tags_arr, bgimg=bgimg, contact_info=c_info)
         print(title, campaign_type, description, doe, tags_arr, c_info)
     return render(request, 'create.html', {'user_role': user_role})
