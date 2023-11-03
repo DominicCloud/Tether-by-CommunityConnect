@@ -1,0 +1,31 @@
+.special-box{
+    color: white;
+}
+
+.paragraph {
+ font-size: 18px;
+ text-align: left;
+}
+
+.paragraph p{
+    font-size: 25px;
+    
+}
+.last-para {
+    font-size: 35px;
+    padding: 50px;
+    text-align: justify;
+}
+.list{
+    margin-bottom: -200px;
+    padding: 50px;  
+}
+.list li {
+    font-size: 20px;
+    text-align: justify;
+}
+.heading{
+    font-size: 100px;
+    padding-right: 5px;
+    margin-bottom: -30px;
+}

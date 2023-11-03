@@ -163,3 +163,6 @@ def activity(request):
 
     return render(request, 'activity.html', {'all_reg':registrations})
 
+def about(request):
+    return render(request, 'about.html')
+
