@@ -145,3 +145,21 @@ def createRegistration(request, campaign_id):
 
     return redirect('/')
 
+def activity(request):
+    profile_list = Profile.objects.filter(user=request.user)
+    for p in profile_list:
+        profile = p
+
+    print(profile)
+    registrations = CampaignRegistration.objects.filter(profile=profile)
+    print(registrations)
+    all_registrations = list(registrations)
+
+    # for r in list(registrations):
+    #     print(r)
+    #     print(r.campaign_title)
+    #     print()
+    print(all_registrations)
+
+    return render(request, 'activity.html', {'all_reg':registrations})
+

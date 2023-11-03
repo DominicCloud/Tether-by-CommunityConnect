@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Activity{% endblock title %}
+{% block body %}
+<div class="page-window flex-column">
+    <h6>Here are all the events you registered for:</h6>
+
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            {% comment %} <th>User</th> {% endcomment %}
+            <th>Date of registration</th>
+        </tr>
+
+        {% for r in all_reg %}
+        <tr>
+            <td>{{r.campaign_title}}</td>
+            {% comment %} <td>{{r.profile}}</td> {% endcomment %}
+            <td>{{r.date_of_registration}}</td>
+        </tr>
+        {% endfor %}
+    </table>    
+    </div>
+
+
+
+{% endblock body %}

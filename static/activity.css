@@ -1,0 +1,34 @@
+table{
+    border: 3px solid var(--blue);
+    border-radius: 10px;
+    padding: 0px;
+    margin: 10px;
+    margin-bottom: 50px;
+    flex: 2;
+    transition: all 0.15s ease;
+}
+table:hover{
+    border: 7px solid var(--yellow);
+    transition: all 0.15s ease;
+}
+th {
+    background-color: black;
+    color: white;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    font-size: calc(1.2*var(--root-font-size));
+}
+tr{
+    background-color: var(--purple);
+    color: white;
+    border: 11px solid transparent;
+    font-size: calc(0.8*var(--root-font-size));
+    transition: all 0.15s ease;
+}
+tr:hover{
+    background-color: var(--blue);
+    color: black;
+    transition: all 0.15s ease;
+}

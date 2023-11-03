@@ -11,5 +11,6 @@ urlpatterns = [
     path('campaigns', views.campaigns, name="campaigns_page"),
     path('create', views.createCampaign, name="create_campaigns"),
     path('display/<int:id>/', views.displayCampaign, name="display_campaign"),
-    path('createRegistration/<int:campaign_id>/', views.createRegistration, name="add_registration")
+    path('createRegistration/<int:campaign_id>/', views.createRegistration, name="add_registration"),
+    path('activity', views.activity, name="activities_page")
 ]
